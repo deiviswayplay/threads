@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { createClient } from "../utils/subase/client";
+import { createClient } from "../utils/supabase/client";
 import styles from "./styles/CreatePostModal.module.css";
 import { AiOutlineClose } from "react-icons/ai";
 

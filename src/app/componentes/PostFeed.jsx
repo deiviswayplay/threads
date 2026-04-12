@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Post from './post';
-import { createClient } from '../utils/subase/client';
+import { createClient } from '../utils/supabase/client';
 import styles from './styles/PostFeed.module.css';
 
 export default function PostFeed({ refreshTrigger }) {

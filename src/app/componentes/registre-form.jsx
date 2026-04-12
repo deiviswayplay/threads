@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { createClient } from "../utils/subase/client";
+import { createClient } from "../utils/supabase/client";
 import styles from './styles/registre-form.module.css';
 
 
