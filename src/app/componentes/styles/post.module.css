@@ -1,0 +1,70 @@
+.contenedor {
+  width: 100%;
+  max-width: 600px;
+  padding: 1rem;
+  border-bottom: 1px solid #27272a;
+}
+
+.fila {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  background-color: #4b5563;
+  flex-shrink: 0;
+}
+
+.contenido {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nombreUsuario {
+  font-weight: 700;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.nombreUsuario:hover {
+  text-decoration: underline;
+}
+
+.tiempo {
+  color: #9ca3af;
+  font-size: 0.875rem;
+}
+
+.texto {
+  margin-top: 0.25rem;
+  color: #ffffff;
+  font-size: 0.9375rem;
+}
+
+.acciones {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.75rem;
+  color: #9ca3af;
+}
+
+.iconoAccion {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-radius: 12px;
+}
+
+.iconoAccion:hover {
+  background-color: #181818;
+}

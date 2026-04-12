@@ -1,0 +1,39 @@
+.cargando {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 48px 0;
+}
+
+.textoCargando {
+  color: #6b7280;
+  font-size: 16px;
+}
+
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 48px 0;
+}
+
+.textoError {
+  color: #ef4444;
+  font-size: 16px;
+}
+
+.vacio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 48px 0;
+}
+
+.textoVacio {
+  color: #6b7280;
+  font-size: 16px;
+}
+
+.separador {
+  border-bottom: 1px solid #e0e0e0;
+}

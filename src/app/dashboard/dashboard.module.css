@@ -1,0 +1,17 @@
+.contenedor {
+  display: flex;
+  min-height: 100vh;
+
+}
+
+.navegacion {
+  flex-shrink: 0;
+}
+
+.contenidoPrincipal {
+  flex: 1;
+  max-width: 512px;
+  margin: 0 auto;
+  border-left: 1px solid #e0e0e0;
+  border-right: 1px solid #e0e0e0;
+}
