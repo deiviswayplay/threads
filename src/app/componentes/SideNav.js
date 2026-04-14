@@ -1,23 +1,27 @@
 "use client";
-
-import { useRouter } from "next/navigation";
 import styles from "./styles/SideNav.module.css";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { RiHomeLine } from "react-icons/ri";
 import { FiSearch } from "react-icons/fi";
-import { AiOutlineHeart } from "react-icons/ai";
-import { VscAccount } from "react-icons/vsc";
-import { VscAdd } from "react-icons/vsc";
+import { AiOutlineHeart, AiOutlineClose } from "react-icons/ai";
+import { VscAccount, VscAdd } from "react-icons/vsc";
 import { RxHamburgerMenu } from "react-icons/rx";
 
 export default function SideNav() {
   const router = useRouter();
+  const [menuOpen, setMenuOpen] = useState(false);
   const navItems = [
     { icon: RiHomeLine, href: "/dashboard", size: 28 },
     { icon: FiSearch, href: "/search" },
     { icon: VscAdd, href: "/onClose"  },
     { icon: AiOutlineHeart, href: "/activity" },
     { icon: VscAccount, href: "/profile" },
-    { icon: RxHamburgerMenu, href: "/menu" },
+    { icon: RxHamburgerMenu, href: "/menu", hideOnMobile: true },
+  ];
+
+  const mobileExtraItems = [
+    { icon: AiOutlineHeart, href: "/activity", size: 24 },
   ];
 
   return (
@@ -34,13 +38,38 @@ export default function SideNav() {
       </div>
 
       <div className={styles.contenedorNavegacion}>
-        {navItems.map(({ icon: Icon, href, size = 24 }) => (
+        {navItems.map(({ icon: Icon, href, size = 24, hideOnMobile }) => (
           <div
             key={href}
-            className={styles.botonIcono}
+            className={`${styles.botonIcono} ${hideOnMobile ? styles.desktopOnly : ""}`}
             onClick={() => router.push(href)}
           >
             <Icon size={size} color="gray" />
+          </div>
+        ))}
+      </div>
+
+      <button
+        type="button"
+        className={styles.mobileToggle}
+        onClick={() => setMenuOpen((prev) => !prev)}
+        aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
+      >
+        {menuOpen ? <AiOutlineClose size={26} /> : <RxHamburgerMenu size={26} />}
+      </button>
+
+      <div className={`${styles.mobileMenu} ${menuOpen ? styles.visible : ""}`}>
+        {mobileExtraItems.map(({ icon: Icon, href, label, size }) => (
+          <div
+            key={href}
+            className={styles.mobileMenuItem}
+            onClick={() => {
+              router.push(href);
+              setMenuOpen(false);
+            }}
+          >
+            <Icon size={size} color="white" />
+            <span className={styles.mobileMenuLabel}>{label}</span>
           </div>
         ))}
       </div>

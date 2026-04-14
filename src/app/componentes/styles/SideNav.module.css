@@ -40,3 +40,114 @@
 .botonIcono:hover {
   background-color: #181818;
 }
+
+.mobileToggle {
+  display: none;
+  border: none;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 12px;
+  transition: background-color 0.2s ease;
+}
+
+.mobileToggle:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.mobileMenu {
+  display: none;
+}
+
+.mobileMenuItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 14px;
+  border-radius: 16px;
+  background-color: #111;
+  cursor: pointer;
+}
+
+.mobileMenuLabel {
+  color: #fff;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 768px) {
+  .contenedor {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 50;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    min-height: auto;
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 0;
+    background: rgba(10, 10, 10, 0.96);
+    box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.25);
+  }
+
+  .contenedorLogo {
+    margin-bottom: 0;
+    order: 1;
+  }
+
+  .contenedorNavegacion {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 0;
+    padding-bottom: 0;
+    flex: 1;
+    overflow-x: auto;
+  }
+
+  .botonIcono {
+    min-width: 46px;
+    min-height: 46px;
+    padding: 10px;
+  }
+
+  .mobileToggle {
+    display: flex;
+    order: 3;
+  }
+
+  .mobileMenu {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 60px;
+    padding: 12px 16px 18px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    background: rgba(10, 10, 10, 0.98);
+    border-top: 1px solid #222;
+    transform: translateY(100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+
+  .mobileMenu.visible {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .desktopOnly {
+    display: none;
+  }
+}
