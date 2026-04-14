@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { toast, Toaster } from "sonner";
 import { useRouter } from "next/navigation";
 import { createClient } from "../utils/supabase/client";
 import styles from './styles/login-form.module.css';
@@ -14,7 +15,7 @@ export default function LoginForm () {
   const login = async (e) => {
     e.preventDefault();
     if (!user.email || !user.password) {
-      alert("Por favor, ingresa tu email y contraseña");
+      toast.error("Por favor, ingresa tu email y contraseña");
       return;
     }
 
@@ -26,12 +27,12 @@ export default function LoginForm () {
       });
       if (error) throw error;
       if (data) {
-        alert("Inicio de sesión exitoso");
+        toast.success("Inicio de sesión exitoso");
         router.push("/dashboard");
       }
     } catch (error) {
       console.error(error);
-      alert("Error al iniciar sesión: " + error.message);
+      toast.error("Error al iniciar sesión: " + error.message);
     }
   };
   return (
@@ -75,6 +76,7 @@ export default function LoginForm () {
             Regístrate
           </span>
         </p>
+        <Toaster position="top-center" />
       </form>
     </div>
   );

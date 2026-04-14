@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { toast, Toaster } from "sonner";
 import { createClient } from "../utils/supabase/client";
 import styles from "./styles/CreatePostModal.module.css";
 import { AiOutlineClose } from "react-icons/ai";
@@ -15,7 +16,9 @@ export default function CreatePostModal({ isOpen, onClose, onPostCreated }) {
     setError("");
 
     if (!content.trim()) {
-      setError("El contenido no puede estar vacío");
+      const message = "El contenido no puede estar vacío";
+      setError(message);
+      toast.error(message);
       return;
     }
 
@@ -43,11 +46,14 @@ export default function CreatePostModal({ isOpen, onClose, onPostCreated }) {
       if (insertError) throw insertError;
 
       setContent("");
+      toast.success("Publicación creada correctamente");
       onPostCreated?.();
       onClose();
     } catch (err) {
       console.error("Error al crear post:", err);
-      setError(err.message || "Error al crear el post");
+      const message = err.message || "Error al crear el post";
+      setError(message);
+      toast.error(message);
     } finally {
       setLoading(false);
     }
@@ -95,6 +101,7 @@ export default function CreatePostModal({ isOpen, onClose, onPostCreated }) {
             </button>
           </div>
         </form>
+        <Toaster position="top-center" />
       </div>
     </div>
   );

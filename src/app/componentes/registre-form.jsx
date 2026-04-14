@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { toast, Toaster } from "sonner";
 import { useRouter } from "next/navigation";
 import { createClient } from "../utils/supabase/client";
 import styles from './styles/registre-form.module.css';
@@ -25,11 +26,11 @@ export default function RegistreForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!form.email || !form.password || !form.confirmPassword) {
-      alert("Por favor, completa todos los campos");
+      toast.error("Por favor, completa todos los campos");
       return;
     }
     if (form.password !== form.confirmPassword) {
-      alert("Las contraseñas no coinciden");
+      toast.error("Las contraseñas no coinciden");
       return;
     }
 
@@ -41,12 +42,12 @@ export default function RegistreForm() {
       });
       if (error) throw error;
       if (data) {
-        alert("Registro exitoso. Revisa tu email para confirmar la cuenta.");
+        toast.success("Registro exitoso. Revisa tu email para confirmar la cuenta.");
         router.push("/login");
       }
     } catch (error) {
       console.error(error);
-      alert("Error al registrarse: " + error.message);
+      toast.error("Error al registrarse: " + error.message);
     }
   };
 
@@ -102,6 +103,7 @@ export default function RegistreForm() {
             Inicia sesión 
           </span>
         </p>
+        <Toaster position="top-center" />
       </form>
     </div>
     );

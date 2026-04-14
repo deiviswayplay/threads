@@ -14,15 +14,15 @@ export const createClient = (cookieStore: Awaited<ReturnType<typeof cookies>>) =
           return cookieStore.getAll();
         },
         setAll(cookiesToSet) {
-17          try {
-18            cookiesToSet.forEach(({ name, value, options }) => cookieStore.set(name, value, options))
-19          } catch {
-20            // The `setAll` method was called from a Server Component.
-21            // This can be ignored if you have middleware refreshing
-22            // user sessions.
-23          }
-24        },
-25      },
-26    },
-27  );
-28};
+          try {
+            cookiesToSet.forEach(({ name, value, options }) => cookieStore.set(name, value, options));
+          } catch {
+            // The `setAll` method was called from a Server Component.
+            // This can be ignored if you have middleware refreshing
+            // user sessions.
+          }
+        },
+      },
+    }
+  );
+};
