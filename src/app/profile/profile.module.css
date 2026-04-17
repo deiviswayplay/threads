@@ -1,0 +1,97 @@
+.contenedor {
+  display: flex;
+  min-height: 100vh;
+  background: black;
+  color: #f8fafc;
+}
+
+.navegacion {
+  flex-shrink: 0;
+}
+
+.contenidoPrincipal {
+  flex: 1;
+  max-width: 512px;
+  margin: 0 auto;
+  border-left: 1px solid wheat;
+  border-right: 1px solid wheat;
+
+
+}
+
+.perfilCard {
+  width: 100%;
+  background-color: #171717;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+
+  padding: 32px;
+  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.32);
+}
+
+.titulo {
+  margin: 0 0 16px;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.subtitulo {
+  margin: 0 0 28px;
+  color: #94a3b8;
+  line-height: 1.6;
+}
+
+.infoGrid {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.infoItem {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 22px;
+    background: #1f1f1f;
+  border-radius: 18px;
+}
+
+.label {
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+
+.value {
+  color: #f8fafc;
+  font-size: 1rem;
+  font-weight: 600;
+  word-break: break-all;
+}
+
+.profileLogoutButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  gap: 0.5rem;
+  padding: 0.95rem 1.6rem;
+  border: none;
+  border-radius: 999px;
+  background: #e2e8f0;
+  color: #0f172a;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.profileLogoutButton:hover {
+  transform: translateY(-1px);
+  background: #cbd5e1;
+}
+
+.emptyState {
+  color: #cbd5e1;
+  font-size: 1rem;
+}

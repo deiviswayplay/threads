@@ -1,7 +1,6 @@
 .contenedor {
   display: flex;
   min-height: 100vh;
-
 }
 
 .navegacion {
@@ -12,6 +11,7 @@
   flex: 1;
   max-width: 512px;
   margin: 0 auto;
-  border-left: 1px solid #e0e0e0;
-  border-right: 1px solid #e0e0e0;
+  border-left: 1px solid wheat;
+  border-right: 1px solid wheat;
+  border-radius: 10px;
 }
